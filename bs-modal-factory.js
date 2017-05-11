@@ -63,7 +63,7 @@
 
         function htmlButtons() {
             var html = '';
-            for (i in settings.buttons) {
+            for (var i = 0; i < settings.buttons.length; i++) {
                 if (!settings.buttons[i].id)
                     settings.buttons[i].id = settings.id + 'Btn' + i;
 
