@@ -108,8 +108,7 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">GitHub</a></li>
-          <li><a href="#contact">...</a></li>
+          <li><a href="https://github.com/YitzhakAndrade/bs-modal-factory">GitHub</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -138,38 +137,31 @@
 
 
   <div class="container">
-    
-      <h1>Bootstrap starter template</h1>
-      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML
-        document.
-      </p>
-
   <!-- Example2 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Basic Example
-    </div>
-    <div class="panel-body">
-      <p>Body content can be HTML.</p>
-      <p><a id="factoryExample2" class="btn btn-primary" href="#" role="button">Open modal</a></p>
-      <pre>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Basic Example
+      </div>
+      <div class="panel-body">
+        <p>Body content can be HTML.</p>
+        <p><a id="factoryExample2" class="btn btn-primary" href="#" role="button">Open modal</a></p>
+        <pre>
   $.modalFactory({
     id: 'myModalId',
     title: 'HTML Body Content'
     body: '&lt;div class=&quot;alert alert-info&quot;&gt;Some info&lt;/div&gt;'
-  }).modal('show');
-      </pre>
+  }).modal('show');</pre>
+      </div>
     </div>
-  </div>
-  <!-- Example3 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Ajax Content
-    </div>
-    <div class="panel-body">
-      <p></p>
-      <p><a id="factoryExample3" class="btn btn-primary" href="#" role="button">Open modal</a></p>
-      <pre>
+    <!-- Example3 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Ajax Content
+      </div>
+      <div class="panel-body">
+        <p></p>
+        <p><a id="factoryExample3" class="btn btn-primary" href="#" role="button">Open modal</a></p>
+        <pre>
   $.ajax({
     type: "GET",
     cache: false,
@@ -181,35 +173,31 @@
         body: data
       }).modal('show');
     }
-  });
-      </pre>
+  });</pre>
+      </div>
     </div>
-  </div>
 
-  <!-- Example4 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Options
+    <!-- Example4 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Options
+      </div>
+      <div class="panel-body">
+        <p></p>
+        <p><a id="factoryExample4" class="btn btn-primary" href="#" role="button">Open modal</a></p>
+        <pre>
+  $.modalFactory({
+    id: 'myModalId',
+    buttons: [
+      {
+        text: 'Click me...', cssClass: 'warning',
+        onClick: function () { alert('Hello!') }
+      },
+      { text: 'Close modal', cssClass: 'danger', dataDismiss: true }
+    ]
+  }).modal('show');</pre>
+      </div>
     </div>
-    <div class="panel-body">
-      <p></p>
-      <p><a id="factoryExample4" class="btn btn-primary" href="#" role="button">Open modal</a></p>
-      <pre>
-$.modalFactory({
-  id: 'myModalId',
-  buttons: [
-    {
-      text: 'Click me...', cssClass: 'warning',
-      onClick: function () { alert('Hello!') }
-    },
-    { text: 'Close modal', cssClass: 'danger', dataDismiss: true }
-  ]
-}).modal('show');
-      </pre>
-    </div>
-  </div>
-
-
 
   </div>
 </body>
