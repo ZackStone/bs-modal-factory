@@ -53,8 +53,7 @@
         $.ajax({
           type: "GET",
           cache: false,
-           crossDomain: true,
-          url: "https://httpbin.org/get",
+          url: './ajax-content-example.html',
           success: function (data) {
             $.modalFactory({
               id: 'modalAjax',
