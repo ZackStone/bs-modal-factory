@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" type="image/x-icon" href="https://yitzhakandrade.github.io/favicon.ico?">
+
+  <title>BS Modal Factory</title>
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <script src="./bs-modal-factory.js"></script>
+
+  <script>
+    $( document ).ready(function() {
+      $('#factoryExample1').on('click', function (e) {
+        e.preventDefault();
+        $.modalFactory({
+          title: 'Hello!', body: 'Put some content here.'
+        }).modal('show');
+      });
+
+      // ==================================================
+
+      $('#factoryExample2').on('click', function (e) {
+        e.preventDefault();
+        $.modalFactory({
+          id: 'myModalId',
+          title: 'HTML Body Content',
+          body: '<div class="alert alert-info">Some info</div>'
+        }).modal('show');
+      });
+
+      // ==================================================
+
+      $('#factoryExample3').on('click', function (e) {
+        e.preventDefault();
+        $.ajax({
+          type: "GET",
+          cache: false,
+           crossDomain: true,
+          url: "https://httpbin.org/get",
+          success: function (data) {
+            $.modalFactory({
+              id: 'modalAjax',
+              title: 'Ajax Content',
+              body: data
+            }).modal('show');
+          }
+        }); // end ajax
+      });
+
+      // ==================================================
+
+      $('#factoryExample4').on('click', function (e) {
+        e.preventDefault();
+        $.modalFactory({
+          id: 'myModalId',
+          buttons: [
+            {
+              text: 'Click me...', cssClass: 'warning',
+              onClick: function () { alert('Hello!') }
+            },
+            { text: 'Close modal', cssClass: 'danger', dataDismiss: true }
+          ]
+        }).modal('show');
+      });
+    });
+  </script>
+
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#">Bootstrap Modal Factory</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">GitHub</a></li>
+          <li><a href="#contact">...</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Bootstrap Modal Factory</h1>
+      <p>
+        This is a plugin to create boostrap modals dynamically.
+        </p>
+      <p><a id="factoryExample1" class="btn btn-primary btn-lg" href="#" role="button">Open modal</a></p>    
+    </div>
+
+    <div class="container">
+    <pre>
+  $.modalFactory({
+    title: 'Hello!', body: 'Put some content here.'
+  }).modal('show');</pre>
+    </div>
+
+  </div>
+
+
+  <div class="container">
+    
+      <h1>Bootstrap starter template</h1>
+      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML
+        document.
+      </p>
+
+  <!-- Example2 -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Basic Example
+    </div>
+    <div class="panel-body">
+      <p>Body content can be HTML.</p>
+      <p><a id="factoryExample2" class="btn btn-primary" href="#" role="button">Open modal</a></p>
+      <pre>
+  $.modalFactory({
+    id: 'myModalId',
+    title: 'HTML Body Content'
+    body: '&lt;div class=&quot;alert alert-info&quot;&gt;Some info&lt;/div&gt;'
+  }).modal('show');
+      </pre>
+    </div>
+  </div>
+  <!-- Example3 -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Ajax Content
+    </div>
+    <div class="panel-body">
+      <p></p>
+      <p><a id="factoryExample3" class="btn btn-primary" href="#" role="button">Open modal</a></p>
+      <pre>
+  $.ajax({
+    type: "GET",
+    cache: false,
+    url: "./ajax-content-example.html",
+    success: function (data) {
+      $.modalFactory({
+        id: 'modalAjax',
+        title: 'Ajax Content',
+        body: data
+      }).modal('show');
+    }
+  });
+      </pre>
+    </div>
+  </div>
+
+  <!-- Example4 -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Options
+    </div>
+    <div class="panel-body">
+      <p></p>
+      <p><a id="factoryExample4" class="btn btn-primary" href="#" role="button">Open modal</a></p>
+      <pre>
+$.modalFactory({
+  id: 'myModalId',
+  buttons: [
+    {
+      text: 'Click me...', cssClass: 'warning',
+      onClick: function () { alert('Hello!') }
+    },
+    { text: 'Close modal', cssClass: 'danger', dataDismiss: true }
+  ]
+}).modal('show');
+      </pre>
+    </div>
+  </div>
+
+
+
+  </div>
+</body>
+</html>
