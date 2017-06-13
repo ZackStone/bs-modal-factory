@@ -1,3 +1,7 @@
+# bootstrap3-dialog
+I'm using now bootstrap3-dialog. Check it:
+https://github.com/nakupanda/bootstrap3-dialog
+
 # bs-modal-factory
 
 ```js
